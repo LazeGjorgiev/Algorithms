@@ -311,7 +311,6 @@ class Avengers:
                 current_changed_point = p
                 current_changed_op = 'L'
                 max_planets = destroyed_planets
-                max_tanos_army = tanos_army_polygon[:i] + [p_x_new_minus] + tanos_army_polygon[i + 1:]
 
             # move the current point right for R units
             tanos_army_polygon_current = graham_scan(tanos_army_polygon[:i] + [p_x_new_plus] +
@@ -323,8 +322,6 @@ class Avengers:
                 max_planets = destroyed_planets
                 current_changed_op = 'R'
 
-                max_tanos_army = tanos_army_polygon[:i] + [p_x_new_plus] + tanos_army_polygon[i + 1:]
-
             # move the current point up for R units
             tanos_army_polygon_current = graham_scan(tanos_army_polygon[:i] + [p_y_new_plus] +
                                                      tanos_army_polygon[i + 1:])
@@ -334,7 +331,6 @@ class Avengers:
                 current_changed_point = p
                 max_planets = destroyed_planets
                 current_changed_op = 'U'
-                max_tanos_army = tanos_army_polygon[:i] + [p_y_new_plus] + tanos_army_polygon[i + 1:]
 
                 # move the current point down for R units
             tanos_army_polygon_current = graham_scan(tanos_army_polygon[:i] + [p_y_new_minus] +
@@ -345,7 +341,6 @@ class Avengers:
                 current_changed_point = p
                 max_planets = destroyed_planets
                 current_changed_op = 'D'
-                max_tanos_army = tanos_army_polygon[:i] + [p_y_new_minus] + tanos_army_polygon[i + 1:]
 
         # plot(max_tanos_army, True, planets, "Максимизиран број на планети во полигонот")
 
@@ -438,14 +433,12 @@ class Avengers:
 
 
 if __name__=='__main__':
-    #broj na koordinati za niva1
     N = int(input())
     planeti = []
     for i in range(N):
         planeta = input()
         planeti.append((int(planeta.split(" ")[0]),int(planeta.split(" ")[1])))
 
-    # broj na koordinati za niva2
     K = int(input())
     vselenski_brodovi_tanos = []
     for i in range(K):
@@ -455,12 +448,3 @@ if __name__=='__main__':
     R = int(input())
 
     print(Avengers().destroyed_planets(planeti,vselenski_brodovi_tanos,R))
-
-# print(Avengers().destroyed_planets(
-#         [(13, 6), (16, 6), (1, 9), (7, 18), (12, 22), (10, 20), (29, 5), (24, 21), (4,21),(3, 20), (11, 14), (25, 16), (23, 23), (7, 8), (1, 16), (10, 21)],
-#       [(1,1),(5,6),(29,0),(28,5),(30,20),(23,25),(16,23),(10,15),(3,10),(-1,13),(0,5),(5,20),(4,19),(10,0),(15,24),(31,5)], 3))
-#
-
-# s = check_destroyed_planets_optimized([(13, 6), (16, 6), (1, 9), (7, 18), (12, 22), (10, 20), (29, 5), (24, 21), (4,21),(3, 20), (11, 14), (25, 16), (23, 23), (7, 8), (1, 17), (10, 21)],
-# [(10, 0), (29, 0), (31, 5), (30, 20), (23, 25), (15, 24), (5, 20), (4, 22), (-1, 13), (0, 5), (1, 1)])
-# print(s)

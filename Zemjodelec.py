@@ -109,9 +109,9 @@ class Zemjodelec:
         povrsina1_polygon = graham_scan(koordinati_povrsina1)
         spoeni_polygon = graham_scan(povrsina1_polygon+krajni_koordinati_povrsina_2)
 
-        plot(povrsina1_polygon,True,title="Земјоделска површина 1")
-        plot(spoeni_polygon,True,title="Вкупна земјоделска површина")
-        plot(spoeni_polygon,True,povrsina1_polygon,title="Вкупна земјоделска површина - делови")
+        # plot(povrsina1_polygon,True,title="Земјоделска површина 1")
+        # plot(spoeni_polygon,True,title="Вкупна земјоделска површина")
+        # plot(spoeni_polygon,True,povrsina1_polygon,title="Вкупна земјоделска површина - делови")
 
         povrsina_1 = compute_area_convex_hull(povrsina1_polygon)
         povrsina_spoeni = compute_area_convex_hull(spoeni_polygon)
